@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23059669'/%3E%3Cpath d='M8 22.5V9.5l8 8 8-8v13' stroke='white' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="MeaBit Wallet — Bitcoin made simple for everyone. A Tanzania-focused Bitcoin and Lightning wallet with TZS support, AI assistance and Vikoba."
+    />
+    <title>MEABIT WALLET — Bitcoin made simple for everyone</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      (function() {
+        function removeBadges() {
+          var all = document.querySelectorAll('div, a, span, p, footer, iframe');
+          for (var i = 0; i < all.length; i++) {
+            var el = all[i];
+            if (el.id === 'root') continue;
+            var text = (el.innerText || el.textContent || '').trim().toLowerCase();
+            if (text === 'powered by' || text.indexOf('powered by') === 0 || text.indexOf('powered by freebuff') !== -1 || text.indexOf('freebuff') !== -1) {
+              if (!el.contains(document.getElementById('root'))) {
+                el.remove();
+              }
+            }
+          }
+        }
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', removeBadges);
+        } else {
+          removeBadges();
+        }
+        var obs = new MutationObserver(removeBadges);
+        obs.observe(document.documentElement, { childList: true, subtree: true });
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
